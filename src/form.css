@@ -1,0 +1,151 @@
+/* הגדרות כלליות */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  direction: rtl;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* מיכל כולל */
+.container {
+  display: flex;
+  height: 100%;
+  position: relative; /* כדי שהטופס יכול להיות ממוקם מעל המפה */
+}
+
+/* עיצוב למפה */
+.map-container {
+  height: 100vh; /* גובה מלא של המסך */
+  width:95.5%;
+  margin-right: auto;
+  background-color: #f0f0f0; /* צבע רקע בהיר למפה אם אין תמונה */
+}
+
+
+/* עיצוב לטופס */
+.form-container {
+  width: 23%; /* רוחב רבע מהעמוד */
+  padding-left: 25px; /* ריפוד בצד שמאל */
+  padding-right: 25px; /* ריפוד בצד ימין */
+  background-color: white; /* צבע רקע ירוק פסטל */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* צל יפה לטופס */
+  z-index: 10; /* לוודא שהטופס יהיה מעל המפה */
+  overflow-y: auto;
+}
+
+
+/* עיצוב השדות */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* תוויות */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+/* שדות קלט */
+.inp,
+.MuiTextField-root {
+  padding: 6px;
+  margin-bottom: 30px;
+  border: 0.5px solid rgb(3, 2, 2);
+  border-radius: 3px;
+  font-size: 14px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.inp:focus {
+  outline: none;
+  border-color: blue;
+  background-color: rgba(0, 0, 255, 0.039);
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.256);
+}
+
+
+/* הודעות שגיאה */
+.div {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: -30px;
+  margin-bottom: 15px;
+}
+
+/* כפתור שליחה */
+/* input[type="submit"] {
+  height: 3px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
+
+.submit{
+  width: 45%;
+}
+
+.submit:hover {
+  background-color: rgba(0, 0, 255, 0.461);
+}
+
+.submit:disabled {
+  background-color: #616161;
+  cursor: not-allowed;
+}
+
+
+
+/* קבוצת תיבות צ'ק */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 30px;
+}
+
+.checkbox-group div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+}
+
+.close {
+  border: none; /* הסרת גבול */
+  color: #000; /* צבע טקסט שחור */
+  padding: 5px 10px; /* ריפוד קטן סביב האייקון */
+  background-color: white;
+  font-size: 25px; /* גודל גופן גדול יותר */
+  margin-right: 95%
+}
+
+
+.close:hover{
+color: blue;
+}
+
+.spinner-container{
+  /* margin-bottom: 2px; */
+  margin-top: -12px;
+}
+
+
+

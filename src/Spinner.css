@@ -1,0 +1,23 @@
+.spinner {
+  margin-top: 10px;
+  width: 10px; /* גודל הספינר */
+  height: 10px;
+  border: 3.5px solid rgba(0, 0, 0, 0.1);
+  border-top: 3.5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner-container {
+  display: flex;
+  align-items: center; /* יישור אנכי */
+  gap: 6px; /* רווח בין הספינר לטקסט */
+}
