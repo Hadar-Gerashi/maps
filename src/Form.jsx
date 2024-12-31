@@ -28,7 +28,7 @@ export default function Form() {
     //הlon של הבחירה של כתובת המשתמש
     let [lon, setLon] = useState(34.8594762);
 
-    //מש
+    //משתנה לתצוגת הספינר חיפוש שלי 
     let [status, setStatus] = useState("");
 
     //השם של הכתובת שהמשתמש בחר
@@ -46,7 +46,7 @@ export default function Form() {
 
 
 
-    //פונקציה שנעשת פעם אחת בעת טעינת הדף והיא נותנת את המיקום של המשתמש על המפה 
+    //פונקציה שנעשת פעם אחת בעת טעינת הדף והיא נותנת את המיקום הנוכחי של המשתמש על המפה 
     useEffect(() => {
         const getLocation = () => {
             if (navigator.geolocation) {
@@ -70,6 +70,7 @@ export default function Form() {
 
         getLocation();
     }, []);
+
 
 
     //פונקציה בשביל האיקון תפריט  אם לוחץ עליו אז יפתח לי הטופס
@@ -114,17 +115,15 @@ export default function Form() {
     //פונקציה שמקבלת את מה שהמשתמש בחר ומחפשת את שם הכתובת הזו בdata אם מצא אז יעדכן את lat lon iname
     function getDetails(select) {
         let find = data.find(address => address.display_name == select)
+        //אם לא קימת כתובת כזאת
         if
             (!find) { console.log("no have this city") }
-        else {
 
+        //אם קימת כתובת כזאת
+        else {
             setLat(find.lat)
             setLon(find.lon)
             setName(find.display_name)
-            // name = find.display_name
-
-
-
             setStatus("✅" + " נמצא")
         }
 
@@ -135,9 +134,10 @@ export default function Form() {
 
     return (
         <div className="container">
-  
+            {/* //הצגת הקומפוננטה של איקון תפריט אם לא לחצו על איקון התפריט אן אם עשו איקס על הטופס */}
             {!menu && <MenuComp func={handleClick} />}
 
+              {/* //הצגת הטופס רק אם לחצו על האיקון תפריט */}
             {menu && <div className="form-container">
                 <form noValidate onSubmit={handleSubmit(save)}>
 
@@ -170,7 +170,7 @@ export default function Form() {
                                 setStatus("מחפש...")
                                 nominatim_API(e.target.value);
                                 getDetails(select);
-                              
+
 
                             }}
 
@@ -245,7 +245,7 @@ export default function Form() {
                         })} />
                         {errors.dis && <div className='div'>{errors.dis.message}</div>}
 
-                   
+
 
 
                         <Button className="submit" style={{ direction: "ltr", height: "30px" }} endIcon={<SendIcon />} variant="contained" type="submit" disabled={!isValid}>
@@ -260,6 +260,8 @@ export default function Form() {
                 </form>
             </div>}
 
+
+            {/* התצוגה של המפה והמרקר */}
             <div className="map-container">
                 <MapContainer center={[lat, lon]} zoom={13} scrollWheelZoom={true} style={{ height: "100%", width: "100%" }}>
                     <TileLayer

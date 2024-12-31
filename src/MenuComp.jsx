@@ -7,8 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-
-//קומפוננטה מיובאת מmui להצגת דיב עם איקון של menu שכשנלחץ על זה אז יוצג הטופס
+// העמוד הזה מיובא מספרית עיצוב mui וזה מציג איקון תפריט שכשלוחצים עליו רואים את הטופס
 function MenuComp(prop) {
   return (
     <Toolbar  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' ,marginRight:"-9px",width:"67x"}}>
